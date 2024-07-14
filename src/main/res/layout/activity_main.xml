@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Display city name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Austin, TX"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/background_2"
+                android:orientation="vertical">
+
+                <!-- Display weather image -->
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/sun" />
+
+                <!-- Display weather status -->
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sunny"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <!-- Display current temperature -->
+                <TextView
+                    android:id="@+id/currentTemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="60F"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="43sp" />
+
+                <!-- Display high and low temperature for the day -->
+                <TextView
+                    android:id="@+id/dailyHighAndLow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="H:27  L:18"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <!-- Display rain -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/umbrella" />
+
+                        <TextView
+                            android:id="@+id/currentRainInches"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="22in"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rain"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <!-- Display wind -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/wind" />
+
+                        <TextView
+                            android:id="@+id/currentWindSpeed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12 mph"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Wind"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <!-- Display humidity -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:layout_weight="0.33"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/humidity" />
+
+                        <TextView
+                            android:id="@+id/currentHumidity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="18%"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Humidity"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Display average daily temperatures -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginVertical="0dp"
+                android:background="@drawable/background_2"
+                android:orientation="vertical">
+
+                <!-- broadcast 7-day average temp forecast message -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/calendar"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="  7-Day Average Temperature Forecast"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <!-- Day 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- current day -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Today"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/sun" />
+
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day1Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 2"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/sun"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day2Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 3"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/cloudy_3"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day3Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 4 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 4"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/cloudy_sunny"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day4Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 5 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 5"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/sun"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day5Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 6 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 6"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/sun"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day6Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+
+                <!-- Day 7 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- current day -->
+                    <TextView
+                        android:id="@+id/day7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="Day 7"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                    <!-- current weather icon -->
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/sun"
+                        android:layout_gravity="center" />
+                    <!-- current temp -->
+                    <TextView
+                        android:id="@+id/day7Temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="74 F"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="_7_day_average_temperature_forecast">7-Day Average Temperature Forecast</string>
+</resources>
